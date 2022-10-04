@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 - [x] Install R 4.2.1 in CERES server
-- [ ] Set Github to_do_lists project
+- [x] Set Github ***To_Do_Lists*** project
 - [ ] Fill UV sport grant 2023 documents
 - [ ] Write final Navarre research stay documents
 - [ ] Write VE draft paper 
