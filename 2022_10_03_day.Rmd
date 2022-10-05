@@ -9,6 +9,6 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-- [x] Install R 4.2.1 in CERES server
+- [x] Install R 4.2.1 in CERES server.
 
 

@@ -10,13 +10,3 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 - [x] Set Github ***To_Do_Lists*** project
-- [ ] Fill UV sport grant 2023 documents
-- [ ] Write final Navarre research stay documents
-- [ ] Write VE draft paper 
-  - [ ] Fill the STROBE guide check document
-  - [ ] Read VE guidelines
-  - [ ] Read VE guidelines extension
-  - [ ] Define comorbidities codes
-  - [ ] Plot the matching pairs for each day of the follow-up
-  - [ ] Plot the flow
-
