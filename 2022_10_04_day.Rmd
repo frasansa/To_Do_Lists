@@ -1,5 +1,5 @@
 ---
-title: "2022-10-03 to 2022-10-10 week"
+title: "2022-10-04 day"
 author: "Francisco Sanchez Saez"
 date: "`r Sys.Date()`"
 output: html_document
@@ -9,4 +9,4 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-- [x] Set Github ***To_Do_Lists*** project
+- [x] Set Github ***To_Do_Lists*** project.
