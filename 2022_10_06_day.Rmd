@@ -1,0 +1,19 @@
+---
+title: "2022-10-06 day"
+author: "Francisco Sanchez Saez"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+- [ ] Write VE draft paper.
+  - [ ] Fill the STROBE guide check document.
+  - [ ] Read VE guidelines.
+  - [ ] Read VE guidelines extension.
+  - [ ] Define comorbidities codes.
+  - [ ] Plot the matching pairs for each day of the follow-up.
+  - [ ] Plot the flow.
+

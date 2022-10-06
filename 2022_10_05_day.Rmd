@@ -9,14 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-- [ ] Fill UV sport grant 2023 documents.
-- [ ] Change figures for prev2st-adh paper.
-- [ ] Write final Navarre research stay documents.
-- [ ] Write VE draft paper.
-  - [ ] Fill the STROBE guide check document.
-  - [ ] Read VE guidelines.
-  - [ ] Read VE guidelines extension.
-  - [ ] Define comorbidities codes.
-  - [ ] Plot the matching pairs for each day of the follow-up.
-  - [ ] Plot the flow.
+- [x] Fill UV sport grant 2023 documents.
+- [x] Change figures for prev2st-adh paper.
+- [x] Write final Navarre research stay documents.
 
