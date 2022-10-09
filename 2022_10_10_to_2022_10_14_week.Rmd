@@ -1,5 +1,5 @@
 ---
-title: "2022-10-03 to 2022-10-10 week"
+title: "2022-10-10 to 2022-10-14 week"
 author: "Francisco Sanchez Saez"
 date: "`r Sys.Date()`"
 output: html_document
@@ -9,17 +9,15 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-- [x] Install R 4.2.1 in CERES server.
-- [x] Set Github ***To_Do_Lists*** project.
-- [x] Fill UV sport grant 2023 documents.
-- [x] Write final Navarre research stay documents.
 - [ ] Write VE draft paper. 
+  - [x] Plot the temporal evolution of boosters and infections.
   - [ ] Fill the STROBE guide check document.
   - [ ] Read VE guidelines.
   - [ ] Read VE guidelines extension.
   - [ ] Define comorbidities codes.
   - [ ] Plot the matching pairs for each day of the follow-up.
   - [ ] Plot the flow.
+- [ ] Review QC of consign project.
 - [ ] Make Consign report.
   - [ ] Find out how pointblank works.
   - [ ] Make SIP report.

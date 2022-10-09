@@ -1,5 +1,5 @@
 ---
-title: "2022-10-03 day"
+title: "2022-10-03 Monday"
 author: "Francisco Sanchez Saez"
 date: "`r Sys.Date()`"
 output: html_document
