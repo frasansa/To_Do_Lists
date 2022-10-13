@@ -10,21 +10,3 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 - [ ] Check QC report.
-- [ ] Make Consign report.
-  - [ ] Find out how pointblank works.
-  - [ ] Make SIP report.
-  - [ ] Make PCV report.
-  - [ ] Make CEX report.
-  - [ ] Make MBDS report.
-  - [ ] Make AED report.
-  - [ ] Make Diagnostics report.
-  - [ ] Make GAIA report.
-    - [ ] Estimate duration.
-    - [ ] Work in product table.
-  - [ ] Make MDR report.
-  - [ ] Make PMR report.
-  - [ ] Make EOS report.
-  - [ ] Make REDMIVA report.
-  - [ ] Make SIV report.
-  - [ ] Make CONG report.
-
