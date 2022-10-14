@@ -9,8 +9,11 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-- [ ] Make Consign report.
-  - [x] Find out how pointblank works.
+- [x] Find out how pointblank works.
+- [ ] Submit prev2st-adh paper.
+- [ ] Run algorithm in Navarre MBDS and compare with GDR.
+- [ ] Finish social-preg script (maybe change name to micro-data in pregnancies).
+- Make Consign report:
   - [ ] Make SIP report.
   - [ ] Make PCV report.
   - [ ] Make CEX report.
@@ -26,5 +29,12 @@ knitr::opts_chunk$set(echo = TRUE)
   - [ ] Make REDMIVA report.
   - [ ] Make SIV report.
   - [ ] Make CONG report.
+- Write VE draft paper: 
+  - [ ] Fill the STROBE guide check document.
+  - [ ] Read VE guidelines extension.
+  - [ ] Define comorbidities codes.
+  - [ ] Plot the matching pairs for each day of the follow-up.
+  - [ ] Plot the flow.
+- [ ] Sort out my notebook.
 
 

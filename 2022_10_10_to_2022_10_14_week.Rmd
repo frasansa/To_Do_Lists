@@ -9,31 +9,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-- [ ] Write VE draft paper: 
+- Write VE draft paper: 
   - [x] Plot the temporal evolution of boosters and infections.
   - [x] Read VE guidelines.
-  - [ ] Fill the STROBE guide check document.
-  - [ ] Read VE guidelines extension.
-  - [ ] Define comorbidities codes.
-  - [ ] Plot the matching pairs for each day of the follow-up.
-  - [ ] Plot the flow.
 - [x] Review QC of consign project.
-- [ ] Make Consign report.
-  - [x] Find out how pointblank works.
-  - [ ] Make SIP report.
-  - [ ] Make PCV report.
-  - [ ] Make CEX report.
-  - [ ] Make MBDS report.
-  - [ ] Make AED report.
-  - [ ] Make Diagnostics report.
-  - [ ] Make GAIA report.
-    - [ ] Estimate duration.
-    - [ ] Work in product table.
-  - [ ] Make MDR report.
-  - [ ] Make PMR report.
-  - [ ] Make EOS report.
-  - [ ] Make REDMIVA report.
-  - [ ] Make SIV report.
-  - [ ] Make CONG report.
-- [ ] Sort out my notebook.
-
+- [x] Find out how pointblank works.
