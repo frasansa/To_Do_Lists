@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 - [ ] Make Consign report.
-  - [ ] Find out how pointblank works.
+  - [x] Find out how pointblank works.
   - [ ] Make SIP report.
   - [ ] Make PCV report.
   - [ ] Make CEX report.

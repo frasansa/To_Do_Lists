@@ -17,9 +17,9 @@ knitr::opts_chunk$set(echo = TRUE)
   - [ ] Define comorbidities codes.
   - [ ] Plot the matching pairs for each day of the follow-up.
   - [ ] Plot the flow.
-- [ ] Review QC of consign project.
+- [x] Review QC of consign project.
 - [ ] Make Consign report.
-  - [ ] Find out how pointblank works.
+  - [x] Find out how pointblank works.
   - [ ] Make SIP report.
   - [ ] Make PCV report.
   - [ ] Make CEX report.
