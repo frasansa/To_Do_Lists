@@ -38,7 +38,4 @@ knitr::opts_chunk$set(echo = TRUE)
   - [ ] Plot the flow.
 - [ ] Sort out my notebook.
 
-```{r}
-
-```
 
