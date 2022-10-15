@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 - [x] Find out how pointblank works.
+- [ ] Create git project of *Miscelanea*.
 - [ ] Submit prev2st-adh paper.
 - [ ] Run algorithm in Navarre MBDS and compare with GDR.
 - [ ] Finish social-preg script (maybe change name to micro-data in pregnancies).
