@@ -1,0 +1,36 @@
+---
+title: "2022-10-17 Monday"
+author: "Francisco Sanchez Saez"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+- [ ] Run algorithm in Navarre MBDS and compare with GDR.
+- [ ] Finish social-preg script (maybe change name to micro-data in pregnancies).
+- Make Consign report:
+  - [ ] Make SIP report.
+  - [ ] Make PCV report.
+  - [ ] Make CEX report.
+  - [ ] Make MBDS report.
+  - [ ] Make AED report.
+  - [ ] Make Diagnostics report.
+  - [ ] Make GAIA report.
+    - [ ] Estimate duration.
+    - [ ] Work in product table.
+  - [ ] Make MDR report.
+  - [ ] Make PMR report.
+  - [ ] Make EOS report.
+  - [ ] Make REDMIVA report.
+  - [ ] Make SIV report.
+  - [ ] Make CONG report.
+- Write VE draft paper: 
+  - [ ] Fill the STROBE guide check document.
+  - [ ] Read VE guidelines extension.
+  - [ ] Define comorbidities codes.
+  - [ ] Plot the matching pairs for each day of the follow-up.
+  - [ ] Plot the flow.
+- [ ] Sort out my notebook.

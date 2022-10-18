@@ -9,4 +9,4 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-- [x] Submit prev2st-adh paper (start the task).
+- [x] Submit prev2st-adh paper (finished).
