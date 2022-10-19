@@ -1,5 +1,5 @@
 ---
-title: "2022-10-17 Monday"
+title: "2022-10-19 Wednesdey"
 author: "Francisco Sanchez Saez"
 date: "`r Sys.Date()`"
 output: html_document
@@ -9,8 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-- [ ] Run algorithm in Navarre MBDS and compare with GDR.
-- [ ] Finish social-preg script (maybe change name to micro-data in pregnancies).
+- [ ] Update FISABIO-HSRU ETL for the CONSIGN Project.
 - Make Consign report:
   - [ ] Make SIP report.
   - [ ] Make PCV report.
@@ -27,6 +26,8 @@ knitr::opts_chunk$set(echo = TRUE)
   - [ ] Make REDMIVA report.
   - [ ] Make SIV report.
   - [ ] Make CONG report.
+- [ ] Run algorithm in Navarre MBDS and compare with GDR.
+- [ ] Finish social-preg script (maybe change name to micro-data in pregnancies).
 - Write VE draft paper: 
   - [ ] Fill the STROBE guide check document.
   - [ ] Read VE guidelines extension.
