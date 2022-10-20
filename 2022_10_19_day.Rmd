@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-- [ ] Update FISABIO-HSRU ETL for the CONSIGN Project.
+- [x] Update FISABIO-HSRU ETL for the CONSIGN Project.
 - Make Consign report:
   - [ ] Make SIP report.
   - [ ] Make PCV report.
