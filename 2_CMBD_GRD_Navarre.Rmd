@@ -73,10 +73,10 @@ cmbd_navarra_2016
 
 ```{r}
 # función busca categoría
-cumplimentar_categoria <- function(base, nombre_categoria) {
+cumplimentar_categoria <- function(base, nombre_categoria, lista) {
 
 # obtener lista códigos de la categoría  
-lista_codigos_categoria <- lista_codigos %>% 
+lista_codigos_categoria <- lista %>% 
   pluck(nombre_categoria) 
 
 base %>% 
@@ -88,22 +88,46 @@ base %>%
 
 ```
 
+# Cualquier código relacionado con el embarazo
 
 ```{r}
 # bucle------------------------------------------------------------------------
-categorias <- lista_codigos %>% names()
-base <- cmbd_navarra_2016
 
-for(i in seq_along(categorias)) {
-base <- cumplimentar_categoria(base, categorias[i])
-}
 
-mbds_categorias <- base
+mbds_categorias_todas <- cumplimentar_categoria(cmbd_navarra_2016, "todos", lista_codigos_todos)
+
+mbds_categorias_todas_preg <- mbds_categorias_todas %>% filter(todos == 1)
 
 ```
 
 
 ```{r}
+# comprobar casos de más
+mbds_categorias_todas_preg %>% anti_join(cmbd_grd_navarra_2016, 
+                          by = c("paciente_codigo", "fecha_inicio_contacto")) 
+
+cmbd_grd_navarra_2016 %>% anti_join(mbds_categorias_todas_preg, 
+                          by = c("paciente_codigo", "fecha_inicio_contacto"))
+
+```
+
+```{r}
+
+
+```
+
+# Por categorías
+
+```{r}
+categorias <- lista_codigos %>% names()
+
+base <- cmbd_navarra_2016
+for(i in seq_along(categorias)) {
+base <- cumplimentar_categoria(base, categorias[i], lista_codigos)
+}
+mbds_categorias <- base
+
+
 # recuento de categorías-------------------------------------------------------
 mbds_categorias %>% 
   summarise(across(datos_termination:datos_livebirth, sum))
@@ -118,9 +142,7 @@ mbds_categorias_preg <- mbds_categorias %>%
 
 # 6286
 
-```
 
-```{r}
 # comprobar casos de más
 mbds_categorias_preg %>% anti_join(cmbd_grd_navarra_2016, 
                           by = c("paciente_codigo", "fecha_inicio_contacto")) %>% 

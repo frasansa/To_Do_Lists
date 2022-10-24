@@ -26,7 +26,7 @@ datos %>% count(coding_system)
 datos_clean <- datos %>% filter(coding_system %in% c("ICD9CM", "ICD10", 
                                                      "ICD10CM", "ICD10DA"))
 
-datos_clean %>% filter(code == "O72.2")
+datos_clean %>% filter(str_detect(code, "Z87.891") == TRUE)
 
 ```
 
@@ -91,6 +91,8 @@ write_xlsx(x = lista_datos, file.path("Datos",
 
 ```{r}
 lista_codigos <- lista_datos %>% map(.f = ~pull(.x, code))
+lista_codigos_todos <- list(todos = datos_clean %>% pull(code) %>% str_c("^", .))
+
 
 ```
 
