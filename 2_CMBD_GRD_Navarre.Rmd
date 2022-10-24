@@ -56,6 +56,7 @@ cmbd_navarra_2016 <- read_excel(file.path("datos", "CMBD_embarazadas.xlsx"),
 cmbd_grd_navarra_2016 %>% count(grd_inicio)
 cmbd_grd_navarra_2016 %>% count(grd_fin)
 cmbd_grd_navarra_2016 %>% count(grd_inicio, grd_fin)
+# 6229
 
 ```
 
@@ -65,6 +66,73 @@ cmbd_grd_navarra_2016 %>% count(grd_inicio, grd_fin)
 # search categories------------------------------------------------------------
 cmbd_navarra_2016
 
+
+```
+
+# Introducir categorías en el cmbd
+
+```{r}
+# función busca categoría
+cumplimentar_categoria <- function(base, nombre_categoria) {
+
+# obtener lista códigos de la categoría  
+lista_codigos_categoria <- lista_codigos %>% 
+  pluck(nombre_categoria) 
+
+base %>% 
+    mutate({{nombre_categoria}} := if_else(if_any(diag1_cod:proc10_cod, 
+                  ~str_starts(., str_c(lista_codigos_categoria, 
+                              collapse = "|")) == TRUE),
+                  1, 0, missing = 0))
+}
+
+```
+
+
+```{r}
+# bucle------------------------------------------------------------------------
+categorias <- lista_codigos %>% names()
+base <- cmbd_navarra_2016
+
+for(i in seq_along(categorias)) {
+base <- cumplimentar_categoria(base, categorias[i])
+}
+
+mbds_categorias <- base
+
+```
+
+
+```{r}
+# recuento de categorías-------------------------------------------------------
+mbds_categorias %>% 
+  summarise(across(datos_termination:datos_livebirth, sum))
+
+mbds_categorias_preg <- mbds_categorias %>% 
+  filter(datos_termination == 1     |
+         datos_abortos_espont == 1  |
+         datos_ectopic == 1  |
+         datos_ongoing == 1  |
+         datos_livebirth == 1  |
+         datos_stillbirth == 1)
+
+# 6286
+
+```
+
+```{r}
+# comprobar casos de más
+mbds_categorias_preg %>% anti_join(cmbd_grd_navarra_2016, 
+                          by = c("paciente_codigo", "fecha_inicio_contacto")) %>% 
+  distinct(grd_inicio)
+
+cmbd_grd_navarra_2016 %>% anti_join(mbds_categorias_preg, 
+                          by = c("paciente_codigo", "fecha_inicio_contacto"))
+
+
+mbds_categorias_preg %>% filter(paciente_codigo == 1220)
+
+lista_codigos %>% map(~sum(.=="O72.2"))
 
 ```
 

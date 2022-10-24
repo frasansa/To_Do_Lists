@@ -60,6 +60,7 @@ codes_vocabularies <- lista_codigos %>%
   unique() %>% 
   # Aplanamos la lista
   unlist()
+
 ```
 
 ```{r}
@@ -80,6 +81,7 @@ conceptsets_vid <- lista_codigos %>%
     ICD10 = ICD10_new) %>% 
   # eliminar elementos duplicados
   mutate(across(c(ICD9, ICD10), ~map(., unique)))
+
 ```
 
 
@@ -93,46 +95,46 @@ tibble_categorias <- as_tibble(t(conceptsets_vid %>% select(Concept))) %>%
             mutate(across(everything(), ~0))
 ```
 
-# ICD 9
+# Pasar códigos
 
 ```{r}
-# Se filtra cmbd por códigos CIE 9 
-mbds_9 <- CMBD %>% filter(tipo_codigo == "ICD9") %>% 
-  # Añadimos las columnas de las categorías vacías 
-  bind_cols(tibble_categorias)
-
 # función busca categoría
-cumplimentar_categoria_9 <- function(base, nombre_categoria) {
+cumplimentar_categoria <- function(base, nombre_categoria) {
 
 # obtener lista códigos de la categoría  
-lista_codigos_categoria <- conceptsets_vid %>% 
-  filter(Concept == nombre_categoria) %>% 
-  pull(ICD9) %>% 
-  unlist()
+lista_codigos_categoria <- lista_codigos %>% 
+  pluck(nombre_categoria) 
 
-# hay alguna categoría que no tiene ICD9
-if(length(lista_codigos_categoria) == 0) return(base)
-  
 base %>% 
-    mutate({{nombre_categoria}} := if_else(if_any(d1:p30, 
+    mutate({{nombre_categoria}} := if_else(if_any(diag1_cod:proc10_cod, 
                   ~str_starts(., str_c(lista_codigos_categoria, 
                               collapse = "|")) == TRUE),
                   1, 0, missing = 0))
 }
 
 # bucle------------------------------------------------------------------------
-categorias <- conceptsets_vid %>% pull(Concept)
-base <- mbds_9
+categorias <- lista_codigos %>% names()
+base <- cmbd_navarra_2016
 
 for(i in seq_along(categorias)) {
-base <- cumplimentar_categoria_9(base, categorias[i])
+base <- cumplimentar_categoria(base, categorias[i])
 }
 
-mbds_9_categorias <- base
+mbds_categorias <- base
 
 # recuento de categorías-------------------------------------------------------
-mbds_9_categorias %>% 
-  summarise(across(Gestation_less24:NEONATALDEATH_possible, sum))
+mbds_categorias %>% 
+  summarise(across(datos_termination:datos_livebirth, sum))
+
+mbds_categorias %>% 
+  filter(datos_termination == 1     |
+         datos_abortos_espont == 1  |
+         datos_ectopic == 1  |
+         datos_ongoing == 1  |
+         datos_livebirth == 1  |
+         datos_stillbirth == 1)
+
+# 6286
 
 ```
 

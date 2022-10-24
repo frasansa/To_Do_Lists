@@ -26,6 +26,8 @@ datos %>% count(coding_system)
 datos_clean <- datos %>% filter(coding_system %in% c("ICD9CM", "ICD10", 
                                                      "ICD10CM", "ICD10DA"))
 
+datos_clean %>% filter(code == "O72.2")
+
 ```
 
 ```{r}
@@ -84,6 +86,11 @@ lista_datos <- lst(datos_termination,
 
 write_xlsx(x = lista_datos, file.path("Datos", 
                           "lista_codigos_embarazo_2022_10_24.xlsx"))
+
+```
+
+```{r}
+lista_codigos <- lista_datos %>% map(.f = ~pull(.x, code))
 
 ```
 
