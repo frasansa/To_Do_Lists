@@ -16,11 +16,8 @@ source(file.path("..", "Scripts", "Funciones.r"))
 #######################################################################################
 ################################# PROCEDURE CODES #####################################
 #######################################################################################
-concept_sets_of_pregnancy_pro <- c("procedures_livebirth", "procedures_termination", "procedures_spontaneous_abortion", "procedures_ongoing", "procedures_ectopic")
 
-for (conceptset in concept_sets_of_pregnancy_pro){
-  concept_set_domains[[conceptset]] = "Procedures"
-}
+concept_set_codes_pregnancy <- c()
 
 concept_set_codes_pregnancy[["procedures_livebirth"]] <- list()
 concept_set_codes_pregnancy[["procedures_termination"]] <- list()
