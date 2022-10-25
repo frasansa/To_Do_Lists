@@ -1,0 +1,31 @@
+---
+title: "2022-10-26 Wednesday"
+author: "Francisco Sanchez Saez"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+- [] Incorporate procedures_pregnancy into the CMBD-GRD analysis.
+- [] Run new version of QC Level 3.
+- [] Update QC into DRE.
+- Make Consign reports:
+  - [ ] Make SIP report.
+  - [ ] Make PCV report.
+  - [ ] Make CEX report.
+  - [ ] Make MBDS report.
+  - [ ] Make AED report.
+  - [ ] Make Diagnostics report.
+  - [ ] Make GAIA report.
+    - [ ] Estimate duration.
+    - [ ] Work in product table.
+  - [ ] Make MDR report.
+  - [ ] Make PMR report.
+  - [ ] Make EOS report.
+  - [ ] Make REDMIVA report.
+  - [ ] Make SIV report.
+  - [ ] Make CONG report.
+
