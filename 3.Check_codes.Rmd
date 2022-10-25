@@ -5,187 +5,21 @@ output: html_document
 
 ```{r setup, include=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-# cargar librerías, funciones y Paths------------------------------------------
-# source(file.path("..", "Scripts", "Librerias.R"))
-# source(file.path("..", "Scripts", "Funciones.R"))
-# personalizar skim tables-----------------------------------------------------
-# skim_custom <- skim_with(factor = sfl(ordered = NULL, top_counts = NULL))
-path_bases <- file.path("Origin_Tables")
-library(tidyverse)
-library(data.table)
-library(lubridate)
-library(janitor)
-
-```
-
-# Codes
-
-***
-
-```{r}
-# codes------------------------------------------------------------------------
-# concept_set_codes_pregnancy <- readRDS(file.path("Resultados", "lista_codigos_ars.RDS"))
-lista_codigos <- readRDS('lista_codigos_ars.RDS')
-
-```
-
-# CMBD
-
-***
-
-```{r load_bases_cmbd, echo=FALSE, message=FALSE, warning=FALSE}
-# mbds-------------------------------------------------------------------------
-# mbds <- fread(file = file.path(path_bases, "MBDS.csv")) %>% mutate(across(where(is.Date), ymd))
-
-CMBD <- fread(file.path("Bases","CMBD","30471_SD2174_RETINOIDES_ampliada_bis.txt")) %>%
-  # La función clean_names nos limpia los nombres de las varaibles en ese formato
-  # MAKE_CLEAN_NAMES LIBRARY(janitor)
-  clean_names("snake")
-```
-
-# Busca códigos
-
-***
-
-```{r}
-# ver los vocabularios de códigos usados---------------------------------------
-codes_vocabularies <- lista_codigos %>% 
-  # Selecciona las categorías de la lista de códigos
-  map(~names(.x)) %>% 
-  # 
-  flatten() %>% 
-  # Seleccionamos las que empiezan por ICD
-  keep(str_detect(., "ICD")) %>% 
-  # Hacemos que aparezcan una únia vez
-  unique() %>% 
-  # Aplanamos la lista
-  unlist()
+# cargar librerías y funciones-------------------------------------------------
+source(file.path("..", "scripts", "Librerias.R"))
+source(file.path("..", "scripts", "Funciones.R"))
 
 ```
 
 ```{r}
-# crear la tabla de códigos----------------------------------------------------
-conceptsets_vid <- lista_codigos %>% 
-  # Coger de la lista sólo los vocabularios ICD
-  map(~keep(.x, names(.) %in% codes_vocabularies)) %>%
-  # convertir en un tibble
-  enframe() %>% 
-  # separar vocabularios
-  unnest_wider(value) %>% 
-  # unir elementos de los ICD10
-  mutate(ICD10_new = pmap(list(ICD10, ICD10CM, ICD10GM), c)) %>% 
-  # seleccionar ICD9 e ICD10
-  select(
-    Concept = name,
-    ICD9, 
-    ICD10 = ICD10_new) %>% 
-  # eliminar elementos duplicados
-  mutate(across(c(ICD9, ICD10), ~map(., unique)))
-
-```
-
-
-```{r}
-# crear tibble de categorías---------------------------------------------------
-# trasponer columna de conceptos a fila
-tibble_categorias <- as_tibble(t(conceptsets_vid %>% select(Concept))) %>% 
-  # subir el nombre de la variable (de fila 1 a cabecero)
-  row_to_names(1, remove_row = FALSE) %>%
-  # cambiar el nombre repetido en la fila 1 por cero
-            mutate(across(everything(), ~0))
-```
-
-# Pasar códigos
-
-```{r}
-# función busca categoría
-cumplimentar_categoria <- function(base, nombre_categoria) {
-
-# obtener lista códigos de la categoría  
-lista_codigos_categoria <- lista_codigos %>% 
-  pluck(nombre_categoria) 
-
-base %>% 
-    mutate({{nombre_categoria}} := if_else(if_any(diag1_cod:proc10_cod, 
-                  ~str_starts(., str_c(lista_codigos_categoria, 
-                              collapse = "|")) == TRUE),
-                  1, 0, missing = 0))
+# función que busca que códigos coinciden de una fila del cmbd con la lista
+mirar_codigos <- function(base, id, fecha_ini){
+  base %>% filter(id = id,
+                  fecha_inicio_contacto == fecha_ini)
 }
 
-# bucle------------------------------------------------------------------------
-categorias <- lista_codigos %>% names()
-base <- cmbd_navarra_2016
-
-for(i in seq_along(categorias)) {
-base <- cumplimentar_categoria(base, categorias[i])
-}
-
-mbds_categorias <- base
-
-# recuento de categorías-------------------------------------------------------
-mbds_categorias %>% 
-  summarise(across(datos_termination:datos_livebirth, sum))
-
-mbds_categorias %>% 
-  filter(datos_termination == 1     |
-         datos_abortos_espont == 1  |
-         datos_ectopic == 1  |
-         datos_ongoing == 1  |
-         datos_livebirth == 1  |
-         datos_stillbirth == 1)
-
-# 6286
-
 ```
 
-# ICD 10
-
-```{r}
-# filtrar cmbd por códigos CIE 9 
-mbds_10 <- mbds %>% filter(tipo_codigo == "ICD10") %>% 
-  bind_cols(tibble_categorias)
-
-# función busca categoría
-cumplimentar_categoria_10 <- function(base, nombre_categoria) {
-
-# obtener lista códigos de la categoría  
-lista_codigos_categoria <- conceptsets_vid %>% 
-  filter(Concept == nombre_categoria) %>% 
-  pull(ICD10) %>% 
-  unlist()
-
-# hay alguna categoría que no tiene ICD9
-if(length(lista_codigos_categoria) == 0) return(base)
-  
-base %>% 
-    mutate({{nombre_categoria}} := if_else(if_any(d1:p30, 
-                  ~str_starts(., str_c(lista_codigos_categoria, 
-                              collapse = "|")) == TRUE),
-                  1, 0, missing = 0))
-}
-
-# bucle------------------------------------------------------------------------
-categorias <- conceptsets_vid %>% pull(Concept)
-base <- mbds_10
-
-for(i in seq_along(categorias)) {
-base <- cumplimentar_categoria_10(base, categorias[i])
-}
-
-mbds_10_categorias <- base
-
-# recuento de categorías-------------------------------------------------------
-mbds_10_categorias %>% 
-  summarise(across(Gestation_less24:NEONATALDEATH_possible, sum))
-
-```
-
-```{r}
-# cmbd con categorías unido----------------------------------------------------
-mbds_categorias <- union(mbds_9_categorias, mbds_10_categorias)
-fwrite(mbds_categorias, file.path("Resultados", "mbds_categorias.csv"))
-
-```
 
 <br>
 <div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
