@@ -1,5 +1,5 @@
 ---
-title: "2022-10-26 Wednesday"
+title: "2022-10-27 Thursday"
 author: "Francisco Sanchez Saez"
 date: "`r Sys.Date()`"
 output: html_document
@@ -9,17 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-- Consign Project:
-  - [x] Run new version of QC Level 3.
-  - [x] Fix persons duplicates in Consign --> removed mdr-pmr persons.
-  - [x] Rerun ETL (steps 2.2 and 2.3).
-  - [x] Rerun Pregnancy Algorithm.
-  - [x] Write EHDEN agreement outline.
-  - [x] Rerun QC L1.
-  - [x] Rerun QC L1b.
-  - [x] Rerun QC L2.
-  - [x] Rerun QC L3: error in Vaccines table.
-  - [x] Try Run01 of analysis Scripts.
+- [ ] Write email with teams link to Veratech.
   - [ ] Update QC into DRE.
 - [] Incorporate procedures_pregnancy into the CMBD-GRD analysis.
 - Consign Project:
