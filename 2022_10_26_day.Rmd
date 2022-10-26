@@ -9,10 +9,21 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+- Consign Project:
+  - [x] Run new version of QC Level 3.
+  - [x] Fix persons duplicates in Consign --> removed mdr-pmr persons.
+  - [x] Rerun ETL (steps 2.2 and 2.3).
+  - [x] Rerun Pregnancy Algorithm.
+  - [ ] Write EHDEN agreement outline.
+  - [ ] Write email with teams link to Veratech.
+  - [ ] Rerun QC L1.
+  - [ ] Rerun QC L1b.
+  - [ ] Rerun QC L2.
+  - [x] Rerun QC L3: error in Vaccines table.
+  - [ ] Try Run01 of analysis Scripts.
+  - [ ] Update QC into DRE.
 - [] Incorporate procedures_pregnancy into the CMBD-GRD analysis.
-- [] Run new version of QC Level 3.
-- [] Update QC into DRE.
-- Make Consign reports:
+- Consign Project:
   - [ ] Make SIP report.
   - [ ] Make PCV report.
   - [ ] Make CEX report.
