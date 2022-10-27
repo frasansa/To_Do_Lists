@@ -9,9 +9,13 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-- [ ] Write email with teams link to Veratech.
+- [x] Write email with teams link to Veratech.
+- VE:
+  - [ ] Define COVID-19 deaths.
+  - [ ] Rerun the four TT.
+
   - [ ] Update QC into DRE.
-- [] Incorporate procedures_pregnancy into the CMBD-GRD analysis.
+- [x] Incorporate procedures_pregnancy into the CMBD-GRD analysis.
 - Consign Project:
   - [ ] Make SIP report.
   - [ ] Make PCV report.
