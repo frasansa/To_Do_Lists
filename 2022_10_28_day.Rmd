@@ -8,9 +8,10 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
 - [x] Change table in MINERVA paper.
 - [x] Write Mila Martinez (add hyperlink to VID paper).
-- [ ] Write Carlos with the updated table.
+- [x] Write Carlos with the updated table.
 - VE:
   - [ ] Define COVID-19 deaths.
   - [ ] Rerun the four TT.
