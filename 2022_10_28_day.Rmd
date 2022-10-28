@@ -9,6 +9,15 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+cov_pos_preg <- data.table::fread(file.path("d:", "R_Projects", "CONSIGN", "CDMInstances_pan_pregnant", "covid_positive", "cov_pos_preg.csv"))
+library(tidyverse)
+
+cov_pos_preg %>% count(severity)
+
+```
+
+
 - [x] Change table in MINERVA paper.
 - [x] Write Mila Martinez (add hyperlink to VID paper).
 - [x] Write Carlos with the updated table.
