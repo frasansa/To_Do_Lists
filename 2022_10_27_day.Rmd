@@ -10,26 +10,5 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 - [x] Write email with teams link to Veratech.
-- VE:
-  - [ ] Define COVID-19 deaths.
-  - [ ] Rerun the four TT.
-
-  - [ ] Update QC into DRE.
 - [x] Incorporate procedures_pregnancy into the CMBD-GRD analysis.
-- Consign Project:
-  - [ ] Make SIP report.
-  - [ ] Make PCV report.
-  - [ ] Make CEX report.
-  - [ ] Make MBDS report.
-  - [ ] Make AED report.
-  - [ ] Make Diagnostics report.
-  - [ ] Make GAIA report.
-    - [ ] Estimate duration.
-    - [ ] Work in product table.
-  - [ ] Make MDR report.
-  - [ ] Make PMR report.
-  - [ ] Make EOS report.
-  - [ ] Make REDMIVA report.
-  - [ ] Make SIV report.
-  - [ ] Make CONG report.
 
