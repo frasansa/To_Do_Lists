@@ -7,8 +7,18 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
+- Write VE draft paper:
+  - [ ] Define COVID-19 deaths.
+  - [ ] Rerun the four TT.
+  - [ ] Fill the STROBE guide check document.
+  - [ ] Read VE guidelines extension.
+  - [ ] Define comorbidities codes.
+  - [ ] Plot the matching pairs for each day of the follow-up.
+  - [ ] Plot the flow.
+- [ ] Sort out my notebook.
 - Make Consign report:
   - [ ] Make SIP report.
   - [ ] Make PCV report.
@@ -25,10 +35,4 @@ knitr::opts_chunk$set(echo = TRUE)
   - [ ] Make REDMIVA report.
   - [ ] Make SIV report.
   - [ ] Make CONG report.
-- Write VE draft paper: 
-  - [ ] Fill the STROBE guide check document.
-  - [ ] Read VE guidelines extension.
-  - [ ] Define comorbidities codes.
-  - [ ] Plot the matching pairs for each day of the follow-up.
-  - [ ] Plot the flow.
-- [ ] Sort out my notebook.
+
