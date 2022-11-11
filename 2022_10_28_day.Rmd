@@ -1,5 +1,5 @@
 ---
-title: "2022-10-27 Friday"
+title: "2022-10-28 Friday"
 author: "Francisco Sanchez Saez"
 date: "`r Sys.Date()`"
 output: html_document
@@ -8,15 +8,6 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-```{r}
-cov_pos_preg <- data.table::fread(file.path("d:", "R_Projects", "CONSIGN", "CDMInstances_pan_pregnant", "covid_positive", "cov_pos_preg.csv"))
-library(tidyverse)
-
-cov_pos_preg %>% count(severity)
-
-```
-
 
 - [x] Change table in MINERVA paper.
 - [x] Write Mila Martinez (add hyperlink to VID paper).
