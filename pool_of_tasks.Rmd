@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - Write VE draft paper:
   - [ ] Define COVID-19 deaths.
-  - [ ] Rerun the four TT.
+  - [ ] Rerun the four TT matching with comorbidities and matching variables (assess n).
   - [ ] Fill the STROBE guide check document.
   - [ ] Read VE guidelines extension.
   - [ ] Define comorbidities codes.
