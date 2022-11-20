@@ -1,5 +1,5 @@
 ---
-title: "2022-10-20 Thursday"
+title: "Pool of tasks"
 author: "Francisco Sanchez Saez"
 date: "`r Sys.Date()`"
 output: html_document
