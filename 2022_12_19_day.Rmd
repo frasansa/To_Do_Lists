@@ -9,4 +9,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
--[] Finish EHDEN academy vocabularies course.
+- [x] Review codes and results of BARDENA mbds pregnancies.
+- [x] Check CONSIGN and PREGVAL SIP files.
+- [x] Create populations for the different PREGVAL extractions.
+
+
