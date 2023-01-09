@@ -1,5 +1,5 @@
 ---
-title: "2022-12-20 Tuesday"
+title: "2022-12-28 Wednesday"
 author: "Francisco Sanchez Saez"
 date: "`r Sys.Date()`"
 output: html_document
@@ -9,4 +9,4 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
--[x] Finish EHDEN academy vocabularies course.
+-[x] Download ATHENA vocabularies.
